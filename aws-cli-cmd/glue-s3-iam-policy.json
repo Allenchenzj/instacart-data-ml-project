@@ -1,0 +1,97 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3BucketAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::instacart-data-eng-project"
+        },
+        {
+            "Sid": "S3ObjectReadWrite",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::instacart-data-eng-project/*"
+        },
+        {
+            "Sid": "GlueCatalogAccess",
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:CreateDatabase",
+                "glue:UpdateDatabase",
+                "glue:DeleteDatabase",
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:CreateTable",
+                "glue:UpdateTable",
+                "glue:DeleteTable",
+                "glue:GetPartition",
+                "glue:GetPartitions",
+                "glue:CreatePartition",
+                "glue:UpdatePartition",
+                "glue:DeletePartition",
+                "glue:BatchCreatePartition",
+                "glue:BatchDeletePartition"
+            ],
+            "Resource": [
+                "arn:aws:glue:*:*:catalog",
+                "arn:aws:glue:*:*:database/*",
+                "arn:aws:glue:*:*:table/*/*"
+            ]
+        },
+        {
+            "Sid": "GlueSessionAccess",
+            "Effect": "Allow",
+            "Action": [
+                "glue:CreateSession",
+                "glue:DeleteSession",
+                "glue:GetSession",
+                "glue:ListSessions",
+                "glue:RunStatement",
+                "glue:GetStatement",
+                "glue:ListStatements",
+                "glue:CancelStatement",
+                "glue:TagResource",
+                "glue:UntagResource"
+            ],
+            "Resource": [
+                "arn:aws:glue:*:*:session/*"
+            ]
+        },
+        {
+            "Sid": "IAMPassRoleAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::471112945220:role/instacart-glue-service-role"
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["s3:GetObject", "s3:ListBucket"],
+            "Resource": [
+                "arn:aws:s3:::aws-glue-assets-471112945220-ap-southeast-2",
+                "arn:aws:s3:::aws-glue-assets-471112945220-ap-southeast-2/scripts/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        }
+
+    ]
+}
