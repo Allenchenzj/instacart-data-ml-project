@@ -1,6 +1,4 @@
 #!/bin/bash
-BUCKET_NAME="instacart-data-eng-project"
-
 curl -o raw_data/aisles.csv https://instacart-raw-data.s3.ap-southeast-2.amazonaws.com/raw/aisles.csv
 curl -o raw_data/departments.csv https://instacart-raw-data.s3.ap-southeast-2.amazonaws.com/raw/departments.csv
 curl -o raw_data/products.csv https://instacart-raw-data.s3.ap-southeast-2.amazonaws.com/raw/products.csv
