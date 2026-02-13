@@ -1,3 +1,4 @@
+import sys
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.utils import getResolvedOptions
@@ -17,7 +18,14 @@ DATABASE_NAME = "bronze"
 
 args = getResolvedOptions(
     sys.argv,
-    ["JOB_NAME", "bucket_name", "catalog_name", "database_name", "is_full_refresh", "ingest_date"],
+    [
+        "JOB_NAME",
+        "bucket_name",
+        "catalog_name",
+        "database_name",
+        "is_full_refresh",
+        "ingest_date",
+    ],
 )
 
 BUCKET_NAME = args["bucket_name"]
@@ -26,6 +34,7 @@ DATABASE_NAME = args["database_name"]
 IS_FULL_REFRESH = args["is_full_refresh"]
 INGEST_DATE = args["ingest_date"]
 INGEST_YEAR, INGEST_MONTH, INGEST_DAY = INGEST_DATE.split("-")
+
 
 def read_csv_from_raw(table_name):
     """

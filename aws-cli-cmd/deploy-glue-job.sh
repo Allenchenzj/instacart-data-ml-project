@@ -23,7 +23,7 @@ aws glue create-job \
         "--catalog_name": "glue_catalog",
         "--database_name": "bronze",
         "--is_full_refresh": "true",
-        "--ingest_date": "2026-02-13"
+        "--ingest_date": "2026-01-30"
     }' \
     --glue-version "4.0" \
     --worker-type "G.1X" \
