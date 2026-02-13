@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Upload script to S3
-aws s3 cp ../glue-scripts/raw-to-bronze-job.py s3://instacart-data-eng-project/scripts/raw-to-bronze-job.py
+aws s3 cp glue-scripts/raw-to-bronze-job.py s3://instacart-data-eng-project/scripts/raw-to-bronze-job.py
 
 # Create Glue job
 aws glue create-job \
