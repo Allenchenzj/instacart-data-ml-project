@@ -8,7 +8,7 @@
                 "s3:GetBucketLocation",
                 "s3:ListBucket"
             ],
-            "Resource": "arn:aws:s3:::instacart-data-eng-project"
+            "Resource": "arn:aws:s3:::instacart-aws-data-ml-eng-project"
         },
         {
             "Sid": "S3ObjectReadWrite",
@@ -18,7 +18,7 @@
                 "s3:PutObject",
                 "s3:DeleteObject"
             ],
-            "Resource": "arn:aws:s3:::instacart-data-eng-project/*"
+            "Resource": "arn:aws:s3:::instacart-aws-data-ml-eng-project/*"
         },
         {
             "Sid": "GlueCatalogAccess",
@@ -77,7 +77,10 @@
         },
         {
             "Effect": "Allow",
-            "Action": ["s3:GetObject", "s3:ListBucket"],
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
             "Resource": [
                 "arn:aws:s3:::aws-glue-assets-471112945220-ap-southeast-2",
                 "arn:aws:s3:::aws-glue-assets-471112945220-ap-southeast-2/scripts/*"
@@ -92,6 +95,5 @@
             ],
             "Resource": "*"
         }
-
     ]
 }

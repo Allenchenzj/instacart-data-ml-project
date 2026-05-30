@@ -12,7 +12,7 @@ spark = glueContext.spark_session
 print("Spark version:", spark.version)
 print("Initialization complete!")
 
-BUCKET_NAME = "instacart-data-eng-project"
+BUCKET_NAME = "instacart-aws-data-ml-eng-project"
 CATALOG_NAME = "glue_catalog"
 DATABASE_NAME = "bronze"
 
@@ -28,6 +28,7 @@ args = getResolvedOptions(
     ],
 )
 
+# ingest_date format: YYYY-MM-DD 2026-02-14
 BUCKET_NAME = args["bucket_name"]
 CATALOG_NAME = args["catalog_name"]
 DATABASE_NAME = args["database_name"]
@@ -36,6 +37,7 @@ INGEST_DATE = args["ingest_date"]
 INGEST_YEAR, INGEST_MONTH, INGEST_DAY = INGEST_DATE.split("-")
 
 
+# Full refresh vs Incremental refresh
 def read_csv_from_raw(table_name):
     """
     read CSV files from S3 raw layer

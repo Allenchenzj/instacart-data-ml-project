@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUCKET_NAME="instacart-data-eng-project"
+BUCKET_NAME="instacart-aws-data-ml-eng-project"
 
 # Define policy names
 POLICY_NAME="instacart-glue-s3-policy"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUCKET_NAME="instacart-data-eng-project"
+BUCKET_NAME="instacart-aws-data-ml-eng-project"
 
 aws s3 cp raw_data/aisles.csv "s3://${BUCKET_NAME}/raw/aisles/year=2026/month=01/day=28/aisles.csv"
 
