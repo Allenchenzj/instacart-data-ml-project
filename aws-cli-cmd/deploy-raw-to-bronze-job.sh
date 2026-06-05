@@ -28,5 +28,4 @@ aws glue create-job \
     --glue-version "4.0" \
     --worker-type "G.1X" \
     --number-of-workers 2 \
-    --timeout 60 \
-    --profile allen-dev
+    --timeout 60
